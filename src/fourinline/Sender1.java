@@ -25,6 +25,7 @@ public class Sender1 extends Thread
         this.message=message;
         IPAddress = InetAddress.getByName("127.0.0.1");
     }
+    @Override
     public void run()
     {
         while (true)
@@ -32,9 +33,9 @@ public class Sender1 extends Thread
             try
             {
                 DatagramSocket socket = new DatagramSocket();
-                sendData=message.getBytes();
+                sendData = message.getBytes();
                 sendPacket = new DatagramPacket(sendData, sendData.length, IPAddress, port);
-                System.out.println("sended!");
+                System.out.println("Sent!");
                 System.out.println("---------------------");
                 socket.send(sendPacket);
                 socket.close();
